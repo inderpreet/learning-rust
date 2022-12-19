@@ -2,6 +2,8 @@
  * Test Code for Rust Exercises
  */
 
+
+// Entry Point method
 fn main() {
     test_1();
     arrys();
@@ -16,6 +18,7 @@ fn main() {
     celcius_to_farenheit(23.0);
 
 }
+
 
 fn mdas() {
     let plt1 = [[1, 2, 3],
@@ -39,6 +42,8 @@ fn test_1() {
 
 fn arrys() {
     let mut letters = ['a', 'b', 'c'];
+    let chara:&str = "Hello";
+    println!("{:?}", chara);
     letters[0] = 'x';
     println!("First letter is {}", letters[0]);
 
@@ -102,8 +107,11 @@ fn average_of_3(a: i8,b:f64,c: f32) -> f64{
     return average;
 }
 
+
+// Function to convert from celcius to F.
+//
 fn celcius_to_farenheit(celcius: f64)-> f64{
     let farenheit = (celcius*1.8) + 32.0;
-    println!("{:3.1}'C is {}'F", celcius, farenheit);
+    println!("{:4.2}'C is {}'F", celcius, farenheit);
     return farenheit;
 }
