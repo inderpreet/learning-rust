@@ -16,6 +16,7 @@ fn main() {
     assert_eq!(_res, 45.1);
 
     celcius_to_farenheit(23.0);
+    ownership();
 
 }
 
@@ -114,4 +115,14 @@ fn celcius_to_farenheit(celcius: f64)-> f64{
     let farenheit = (celcius*1.8) + 32.0;
     println!("{:4.2}'C is {}'F", celcius, farenheit);
     return farenheit;
+}
+
+fn ownership(){
+    let var1: String;
+    {
+        let var2 = String::from("Value");
+        var1 = var2;
+        println!("Copying value");
+    }
+    println!("{:?}", var1);
 }

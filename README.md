@@ -230,8 +230,35 @@ fn matrix_test() {
 
 ## Ownership
 
-### Scope
+### Scope and shadowing
 
+using let again to redefine the variable showdows the original var
+
+## String literals and pointers in RUST
+
+```rust
+let str = String::from("My String");
+// stored in a heap
+// str is a pointer to the heap or the string
+// contains the mem-loc, len, capacity
+str.push_str(" and then.");
+// adds to the allocated size and then changes its properties
+```
+
+## Cleanup memory - malloc and free; Grabage collection
+
+integers live on the stack and string on heaps
+
+```rust
+let var1: String;
+{
+    let mut var2 = String::from("Value");
+    var1 = var2; //invalidates var2 here
+    // cannot access var2 here  user var2.clone() instead if needed. 
+    // for integers this is not needed
+}
+println!("{:?}", var2);
+```
 
 ## Resources
 
