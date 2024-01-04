@@ -5,18 +5,59 @@
 
 // Entry Point method
 fn main() {
-    test_1();
-    arrys();
-    mdas();
-    hello_array();
-    matrix_test();
-    vec_test();
+    println!("\n\n\n\n\n\n\n");
+    // test_1();
+    // arrys();
+    // mdas();
+    // hello_array();
+    // matrix_test();
+    // vec_test();
 
-    let _res = average_of_3(13, 2.3, 120.0);
-    assert_eq!(_res, 45.1);
+    // let _res = average_of_3(13, 2.3, 120.0);
+    // assert_eq!(_res, 45.1);
 
-    celcius_to_farenheit(23.0);
-    ownership();
+    // celcius_to_farenheit(23.0);
+    // ownership();
+
+    // print_test();
+
+    slice_test();
+
+    println!("\n\n");
+
+}
+
+fn slice_test(){
+    let message = String::from("Greetings from Earth");
+	let first_word = get_first_word(&message[10..]);
+	println!("First word is {}", first_word);
+}
+
+fn get_first_word(s: &str) -> &str {
+// param type not &String
+	let bytes = s.as_bytes();
+	for(index, &item) in bytes.iter().enumerate() { // iterating over bytes 
+		if item == b' ' {
+			return &s[..index];
+		}
+	}
+    &s
+}
+
+fn print_test(){
+    let string1: &str = "This is a string.";
+    let mut string2 = String::new() ;
+    string2.push_str("This is a string 2.");
+    let string3: &'static str = "This is a string 3";
+    let string4 = String::from("Hello fellow Rustaceans!");
+
+    println!("-------------------------");
+    println!(" Print Test ");
+    
+    println!("{}", string1);
+    println!("{:?} ", string2);
+    println!("{}", string3);
+    println!("{}", string4);
 
 }
 
